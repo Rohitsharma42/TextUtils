@@ -5,20 +5,24 @@ export default function TextForm(props) {
     const upper = () => {
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to  uppercase!", "success");
     }
     const lower = () => {
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to  lowercase!", "success");
     }
     const clear = () => {
         let newText = ("");
         setText(newText)
+        props.showAlert("Clear the text!", "success");
     }
     var x=document.getElementById("copy");
     const copy = () => {
        navigator.clipboard.writeText(text);
        x.style.backgroundColor="green";
        x.innerHTML=  'Copied';
+       props.showAlert("Text copied!", "success");
     }
 
     const handleOnChange = (event) => {
